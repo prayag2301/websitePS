@@ -1,0 +1,32 @@
+.about-section {
+  padding: 100px 0;
+  background-color: #f8f9fa;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.text-faded {
+  color: #6c757d;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .about-section {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .section-heading {
+  color: #ffffff;
+}
+
+body.dark-mode .text-faded {
+  color: #c5c5c5;
+}
+
+body.dark-mode hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}

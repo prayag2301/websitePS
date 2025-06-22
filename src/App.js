@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import NavigationBar from './components/NavigationBar/NavigationBar';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import Projects from './components/Projects/Projects';
+import Skills from './components/Skills/Skills';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
+import ThemeToggle from './components/ThemeToggle/ThemeToggle';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
+  console.log('Rendering App with ThemeToggle');
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        {/* ThemeToggle positioned here for better visibility */}
+        <div style={{ position: 'relative', zIndex: 9999 }}>
+          <ThemeToggle />
+        </div>
+        <NavigationBar />
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

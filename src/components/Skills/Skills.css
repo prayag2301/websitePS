@@ -1,0 +1,33 @@
+.skills-section {
+  padding: 100px 0;
+  background-color: #f8f9fa;
+}
+
+.skill-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .skills-section {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .section-heading {
+  color: #ffffff;
+}
+
+body.dark-mode .skills-section hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .skill-badge {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
