@@ -7,7 +7,7 @@ const Hero = () => {
     <div className="hero-section">
       <div className="hero-content">
         <h1>Prayag Sharma</h1>
-        <p>AI/ML Engineer & Developer</p>
+        <p>AI/ML Engineer & Developer | Founding Engineer @KIVO</p>
         <div className="hero-links">
           <a href="https://github.com/prayag2301" target="_blank" rel="noopener noreferrer">
             <FaGithub />
