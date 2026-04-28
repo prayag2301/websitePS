@@ -1,36 +1,126 @@
-
-.navbar {
-  padding: 1rem 2rem;
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  backdrop-filter: blur(10px);
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.9rem 0;
+  background: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+    border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+.nav--scrolled {
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom-color: var(--border);
 }
 
-.nav-link {
-  color: #fff !important;
-  margin-left: 1.5rem;
-  transition: color 0.3s ease;
+.nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.nav-link:hover {
-  color: #a9a9a9 !important;
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.dropdown-menu {
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  border: none;
+.nav__brand:hover {
+  color: var(--text);
 }
 
-.dropdown-item {
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent-grad);
   color: #fff;
-  transition: background-color 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
-.dropdown-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.nav__name {
+  font-size: 0.98rem;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav__links a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav__links a:hover {
+  color: var(--accent);
+}
+
+.nav__toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+@media (max-width: 760px) {
+  .nav__name {
+    display: none;
+  }
+  .nav__toggle {
+    display: inline-flex;
+  }
+  .nav__links {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    min-width: 180px;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+  .nav__links--open {
+    display: flex;
+  }
 }

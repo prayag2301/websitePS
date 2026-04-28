@@ -1,26 +1,59 @@
 import React from 'react';
 import './Hero.css';
-import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFileDownload, FaEnvelope } from 'react-icons/fa';
 
 const Hero = () => {
+  const resumeUrl = `${process.env.PUBLIC_URL}/Prayag_Sharma_CV.pdf`;
+
   return (
-    <div className="hero-section">
-      <div className="hero-content">
-        <h1>Prayag Sharma</h1>
-        <p>AI/ML Engineer & Developer | Founding Engineer @KIVO</p>
-        <div className="hero-links">
-          <a href="https://github.com/prayag2301" target="_blank" rel="noopener noreferrer">
+    <section id="home" className="hero">
+      <div className="hero__bg" aria-hidden="true">
+        <div className="hero__orb hero__orb--a" />
+        <div className="hero__orb hero__orb--b" />
+        <div className="hero__grid" />
+      </div>
+
+      <div className="hero__inner fade-up">
+        <h1 className="hero__title">
+          <span className="hero__title-accent">Prayag Sharma</span>
+        </h1>
+        <p className="hero__subtitle">
+          Founding Engineer @ Kivo. AI/ML engineer building LLM pipelines and backend infrastructure.
+        </p>
+
+        <div className="hero__actions">
+          <a className="btn-primary hero__cta" href="#projects">
+            See my work
+          </a>
+          <a className="btn-outline" href={resumeUrl} target="_blank" rel="noopener noreferrer">
+            <FaFileDownload style={{ marginRight: 8 }} />
+            CV
+          </a>
+        </div>
+
+        <div className="hero__socials">
+          <a
+            href="https://github.com/prayag2301"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <FaGithub />
           </a>
-          <a href="https://www.linkedin.com/in/prayagsharma07/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/prayagsharma07/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
             <FaLinkedin />
           </a>
-          <a href="https://www.linkedin.com/in/prayagsharma07/overlay/1750353378019/single-media-viewer/?profileId=ACoAACzQ6EgBIy2Xs4jyqYo1gWSRM0TOL842fa0" download>
-            <FaFileDownload />
+          <a href="mailto:prayagsharma2001@gmail.com" aria-label="Email">
+            <FaEnvelope />
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

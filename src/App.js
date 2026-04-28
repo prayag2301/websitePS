@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Hero from './components/Hero/Hero';
@@ -13,22 +12,19 @@ import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
-  console.log('Rendering App with ThemeToggle');
-  
   return (
     <ThemeProvider>
       <div className="App">
-        {/* ThemeToggle positioned here for better visibility */}
-        <div style={{ position: 'relative', zIndex: 9999 }}>
-          <ThemeToggle />
-        </div>
         <NavigationBar />
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
         <Footer />
+        <ThemeToggle />
       </div>
     </ThemeProvider>
   );
