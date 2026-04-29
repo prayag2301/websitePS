@@ -9,6 +9,7 @@ const projects = [
       'Web dashboard that parses FIA technical regulations into parametric constraints, generates team-specific 3D F1 car models, and tracks per-race upgrade intelligence with NLP-extracted annotations.',
     stack: ['Next.js', 'React Three Fiber', 'FastAPI', 'PostgreSQL', 'Celery', 'spaCy'],
     link: 'https://github.com/prayag2301/f1-engineering-dashboard',
+    demo: 'https://prayag2301.github.io/f1-engineering-dashboard/',
     badge: 'In progress',
   },
   {
@@ -25,7 +26,7 @@ const projects = [
     blurb:
       'Master thesis benchmarking pretrained Vision Transformers and hybrid CNN-Transformer architectures under tight compute and data constraints — focused on what actually transfers when budgets are real.',
     stack: ['PyTorch', 'HuggingFace', 'ViT', 'Transfer Learning'],
-    link: 'https://github.com/prayag2301',
+    link: 'https://github.com/prayag2301/master_thesis',
     badge: 'Research',
   },
   {
@@ -95,7 +96,7 @@ const Projects = () => {
                 </a>
                 {p.demo && (
                   <a href={p.demo} target="_blank" rel="noopener noreferrer">
-                    Live demo <FaArrowUpRightFromSquare />
+                    Live <FaArrowUpRightFromSquare />
                   </a>
                 )}
               </div>
