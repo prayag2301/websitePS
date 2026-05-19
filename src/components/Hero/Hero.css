@@ -168,3 +168,62 @@ body.dark-mode .hero__orb {
   background: var(--accent-grad);
   transform: translateY(-2px);
 }
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 96px 1.1rem 56px;
+    min-height: 88vh;
+  }
+
+  .hero__orb--a {
+    width: 360px;
+    height: 360px;
+    top: -140px;
+    left: -120px;
+  }
+
+  .hero__orb--b {
+    width: 320px;
+    height: 320px;
+    bottom: -120px;
+    right: -100px;
+  }
+
+  .hero__title {
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
+    line-height: 1.1;
+  }
+
+  .hero__subtitle {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    padding: 0 0.25rem;
+  }
+
+  .hero__actions {
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero__actions .btn-primary,
+  .hero__actions .btn-outline {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.92rem;
+  }
+
+  .hero__socials a {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero {
+    padding: 88px 0.9rem 48px;
+  }
+
+  .hero__title {
+    font-size: 1.95rem;
+  }
+}

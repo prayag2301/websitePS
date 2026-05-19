@@ -24,3 +24,13 @@
   background: var(--accent-grad);
   border-color: transparent;
 }
+
+@media (max-width: 760px) {
+  .theme-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+}

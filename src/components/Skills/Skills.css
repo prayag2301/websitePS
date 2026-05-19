@@ -72,3 +72,28 @@
 body.dark-mode .skill-group__list li {
   background: rgba(255, 255, 255, 0.04);
 }
+
+@media (max-width: 760px) {
+  .skills {
+    padding: 72px 1.1rem;
+  }
+
+  .skills__head {
+    margin-bottom: 2rem;
+  }
+
+  .skills__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-group {
+    padding: 1.2rem 1.2rem 1rem;
+    border-radius: 14px;
+  }
+
+  .skill-group__list li {
+    font-size: 0.82rem;
+    padding: 0.28rem 0.65rem;
+  }
+}
