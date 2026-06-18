@@ -17,24 +17,25 @@
 
 .footer__brand {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.95rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
-.footer__logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
-  background: var(--accent-grad);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 800;
+.footer__mark {
+  font-family: var(--font-mono);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.footer__prompt {
+  color: var(--accent);
+}
+
+.footer__tagline {
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 .footer__socials {
@@ -62,5 +63,9 @@
   .footer__inner {
     justify-content: center;
     text-align: center;
+  }
+
+  .footer__brand {
+    align-items: center;
   }
 }

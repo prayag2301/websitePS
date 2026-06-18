@@ -23,8 +23,9 @@ const NavigationBar = () => {
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <a href="#home" className="nav__brand">
-          <span className="nav__logo">PS</span>
-          <span className="nav__name">Prayag Sharma</span>
+          <span className="nav__prompt">~/</span>
+          <span className="nav__name">prayag</span>
+          <span className="nav__caret">_</span>
         </a>
         <button
           className="nav__toggle"

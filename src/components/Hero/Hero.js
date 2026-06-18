@@ -1,33 +1,38 @@
 import React from 'react';
 import './Hero.css';
-import { FaGithub, FaLinkedin, FaFileDownload, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from 'react-icons/fa';
 
 const Hero = () => {
-  const resumeUrl = `${process.env.PUBLIC_URL}/Prayag_Sharma_CV.pdf`;
-
   return (
     <section id="home" className="hero">
       <div className="hero__bg" aria-hidden="true">
-        <div className="hero__orb hero__orb--a" />
-        <div className="hero__orb hero__orb--b" />
+        <div className="hero__glow" />
         <div className="hero__grid" />
       </div>
 
       <div className="hero__inner fade-up">
+        <span className="hero__badge">
+          <span className="hero__badge-dot" />
+          Building @ Kivo · open to interesting problems
+        </span>
+
+        <p className="hero__kicker">Founding Engineer · AI/ML</p>
+
         <h1 className="hero__title">
           <span className="hero__title-accent">Prayag Sharma</span>
         </h1>
         <p className="hero__subtitle">
-          Founding Engineer @ Kivo. AI/ML engineer building LLM pipelines and backend infrastructure.
+          I build production LLM pipelines and the backend infrastructure that
+          ships them — from messy documents to structured, retrievable data.
         </p>
 
         <div className="hero__actions">
           <a className="btn-primary hero__cta" href="#projects">
-            See my work
+            See what I&apos;ve built
           </a>
-          <a className="btn-outline" href={resumeUrl} target="_blank" rel="noopener noreferrer">
-            <FaFileDownload style={{ marginRight: 8 }} />
-            CV
+          <a className="btn-outline hero__cta" href="#contact">
+            Let&apos;s build something
+            <FaArrowRight style={{ marginLeft: 8, fontSize: '0.8em' }} />
           </a>
         </div>
 

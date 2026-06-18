@@ -7,8 +7,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__brand">
-          <span className="footer__logo">PS</span>
-          <span>Prayag Sharma</span>
+          <span className="footer__mark">
+            <span className="footer__prompt">~/</span>prayag
+          </span>
+          <span className="footer__tagline">Building things that ship.</span>
         </div>
         <div className="footer__socials">
           <a
