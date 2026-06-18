@@ -23,7 +23,7 @@ const Hero = () => {
         </h1>
         <p className="hero__subtitle">
           I build production LLM pipelines and the backend infrastructure that
-          ships them — from messy documents to structured, retrievable data.
+          ships them.
         </p>
 
         <div className="hero__actions">
