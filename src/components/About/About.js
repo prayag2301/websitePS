@@ -3,6 +3,14 @@ import './About.css';
 
 const experiences = [
   {
+    role: 'Co-Founder & CTO',
+    company: 'Opvion',
+    description:
+      'Leading engineering for a unified wealth-tracking app — net worth, spending, and investments across every account and currency in one place, built on open banking aggregation with AI-powered insights. Graduated from the UnternehmerTUM Startup Launchpad; now in talks with accelerators and startup funds.',
+    period: 'Mar 2026 — Present',
+    location: 'Munich, DE',
+  },
+  {
     role: 'Founding Engineer',
     company: 'Kivo',
     description:
@@ -57,9 +65,12 @@ const About = () => {
             <p>
               I currently lead engineering at <strong>Kivo</strong>, an EXIST
               Gründerstipendium–backed startup, where I architect end-to-end AI
-              infrastructure for document intelligence. Before that I built the
-              ranking and matching backbone at Rainmaker Society and contributed
-              ML/ETL work across climate-tech and finance research.
+              infrastructure for document intelligence. Alongside that I'm
+              co-founder and CTO of <strong>Opvion</strong>, a wealth-tracking
+              app that grew out of the UnternehmerTUM Startup Launchpad and is
+              now raising with accelerators and startup funds. Before that I
+              built the ranking and matching backbone at Rainmaker Society and
+              contributed ML/ETL work across climate-tech and finance research.
             </p>
             <p>
               I hold an MSc in Analytics &amp; Artificial Intelligence from ESMT

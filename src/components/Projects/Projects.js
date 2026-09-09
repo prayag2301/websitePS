@@ -1,8 +1,16 @@
 import React from 'react';
 import './Projects.css';
-import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6';
+import { FaGithub, FaArrowUpRightFromSquare, FaGlobe } from 'react-icons/fa6';
 
 const projects = [
+  {
+    title: 'Opvion',
+    blurb:
+      'Co-founded and lead engineering for a wealth-tracking app that brings every account, currency, and investment into one place via open banking aggregation and AI-powered spending insights. Grew out of the UnternehmerTUM Startup Launchpad incubator and is now raising with accelerators and startup funds.',
+    stack: ['Open Banking', 'AI Insights', 'Multi-Currency FX', 'Fintech'],
+    website: 'https://opvionwealth.com',
+    badge: 'Startup',
+  },
   {
     title: 'F1 3D Engineering Dashboard',
     blurb:
@@ -75,12 +83,12 @@ const Projects = () => {
                 <span className="project-card__badge">{p.badge}</span>
                 <a
                   className="project-card__icon"
-                  href={p.link}
+                  href={p.link || p.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${p.title} on GitHub`}
+                  aria-label={p.link ? `${p.title} on GitHub` : `${p.title} website`}
                 >
-                  <FaGithub />
+                  {p.link ? <FaGithub /> : <FaGlobe />}
                 </a>
               </div>
               <h3 className="project-card__title">{p.title}</h3>
@@ -91,12 +99,19 @@ const Projects = () => {
                 ))}
               </ul>
               <div className="project-card__actions">
-                <a href={p.link} target="_blank" rel="noopener noreferrer">
-                  Source <FaArrowUpRightFromSquare />
-                </a>
+                {p.link && (
+                  <a href={p.link} target="_blank" rel="noopener noreferrer">
+                    Source <FaArrowUpRightFromSquare />
+                  </a>
+                )}
                 {p.demo && (
                   <a href={p.demo} target="_blank" rel="noopener noreferrer">
                     Live <FaArrowUpRightFromSquare />
+                  </a>
+                )}
+                {p.website && (
+                  <a href={p.website} target="_blank" rel="noopener noreferrer">
+                    Website <FaArrowUpRightFromSquare />
                   </a>
                 )}
               </div>
