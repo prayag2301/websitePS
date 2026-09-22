@@ -23,23 +23,146 @@
   font-size: 1rem;
 }
 
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+/* ---- Bubbles: one per project, hover/click to zoom + select ---- */
+.projects__bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.1rem 2rem;
+  margin: 0 0 2.5rem;
+  padding-top: 1.5rem;
 }
 
+.bubble {
+  --size: 96px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  cursor: pointer;
+  padding: 0;
+  transform-origin: bottom center;
+  transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.45s ease, background 0.45s ease, color 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.bubble__label {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.bubble__badge {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.bubble:focus-visible,
+.bubble.is-active {
+  box-shadow: 0 14px 32px var(--accent-soft);
+  border-color: transparent;
+  background: var(--accent-grad);
+  color: #fff;
+  outline: none;
+}
+
+/* Dock magnification: hovered bubble grows, neighbours less so by distance */
+.bubble.is-active {
+  transform: scale(1.12);
+}
+
+.bubble:hover {
+  transform: scale(1.45);
+}
+
+.bubble:hover + .bubble,
+.bubble:has(+ .bubble:hover) {
+  transform: scale(1.22);
+}
+
+.bubble:hover + .bubble + .bubble,
+.bubble:has(+ .bubble + .bubble:hover) {
+  transform: scale(1.08);
+}
+
+.bubble:hover .bubble__badge,
+.bubble:focus-visible .bubble__badge,
+.bubble.is-active .bubble__badge {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- Detail card: zooms out from under the hovered bubble ---- */
 .project-card {
   position: relative;
+  max-width: 640px;
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 1.6rem 1.6rem 1.4rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  box-shadow: var(--shadow);
   overflow: hidden;
+  transform-origin: var(--ox, 50%) top;
+  animation: cardZoom 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-card::before {
+  opacity: 1;
+}
+
+@keyframes cardZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.3) translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.project-card .project-card__title,
+.project-card .project-card__blurb,
+.project-card .project-card__stack li,
+.project-card .project-card__actions {
+  animation: cardRise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.2s;
+}
+
+.project-card .project-card__blurb {
+  animation-delay: 0.28s;
+}
+
+.project-card .project-card__stack li {
+  animation-delay: calc(0.36s + var(--j) * 0.05s);
+}
+
+.project-card .project-card__actions {
+  animation-delay: 0.55s;
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-card::before {
@@ -52,16 +175,6 @@
   background: var(--accent-grad);
   opacity: 0;
   transition: opacity 0.25s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: transparent;
-  box-shadow: var(--shadow);
-}
-
-.project-card:hover::before {
-  opacity: 1;
 }
 
 .project-card__top {
@@ -172,9 +285,26 @@ body.dark-mode .project-card__stack li {
     margin-bottom: 2rem;
   }
 
-  .projects__grid {
-    grid-template-columns: 1fr;
-    gap: 1.1rem;
+  .projects__bubbles {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 1rem 0.75rem 0.75rem;
+    margin: 0 -0.75rem 1.5rem;
+  }
+
+  .projects__bubbles::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bubble {
+    --size: 76px;
+    flex: 0 0 auto;
+  }
+
+  .bubble__label {
+    font-size: 0.8rem;
   }
 
   .project-card {
@@ -189,5 +319,12 @@ body.dark-mode .project-card__stack li {
   .project-card__blurb {
     font-size: 0.92rem;
     line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card * {
+    animation: none;
   }
 }
