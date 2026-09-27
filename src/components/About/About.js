@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import useReveal from '../../hooks/useReveal';
 
 const experiences = [
   {
@@ -45,6 +46,8 @@ const experiences = [
 ];
 
 const About = () => {
+  const [timelineRef, revealed] = useReveal(0.15);
+
   return (
     <section id="about" className="about">
       <div className="about__container">
@@ -79,9 +82,17 @@ const About = () => {
             </p>
           </div>
 
-          <ol className="timeline">
-            {experiences.map((e) => (
-              <li className="timeline__item" key={`${e.company}-${e.period}`}>
+          <ol
+            className={`timeline${revealed ? ' is-revealed' : ''}`}
+            ref={timelineRef}
+            style={{ '--n': experiences.length }}
+          >
+            {experiences.map((e, i) => (
+              <li
+                className="timeline__item"
+                key={`${e.company}-${e.period}`}
+                style={{ '--i': i }}
+              >
                 <div className="timeline__marker" />
                 <div className="timeline__content">
                   <div className="timeline__header">

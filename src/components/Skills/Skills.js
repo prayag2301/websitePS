@@ -1,5 +1,6 @@
 import React from 'react';
 import './Skills.css';
+import useReveal from '../../hooks/useReveal';
 
 const skillGroups = [
   {
@@ -44,6 +45,8 @@ const skillGroups = [
 ];
 
 const Skills = () => {
+  const [gridRef, revealed] = useReveal(0.15);
+
   return (
     <section id="skills" className="skills">
       <div className="skills__container">
@@ -56,9 +59,12 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="skills__grid">
-          {skillGroups.map((g) => (
-            <div className="skill-group" key={g.title}>
+        <div
+          className={`skills__grid${revealed ? ' is-revealed' : ''}`}
+          ref={gridRef}
+        >
+          {skillGroups.map((g, i) => (
+            <div className="skill-group" key={g.title} style={{ '--i': i }}>
               <h3 className="skill-group__title">{g.title}</h3>
               <ul className="skill-group__list">
                 {g.items.map((item) => (

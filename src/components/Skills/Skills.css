@@ -36,9 +36,29 @@
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.skill-group:hover {
+/* Cards fly in from alternating edges: odd from the left, even from the right. */
+.skill-group:nth-child(odd) {
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+.skill-group:nth-child(even) {
+  transform: translateX(60px);
+  opacity: 0;
+}
+
+.skills__grid.is-revealed .skill-group {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease, border-color 0.2s ease;
+  transition-delay: calc(var(--i) * 0.12s);
+}
+
+.skills__grid.is-revealed .skill-group:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  transition-delay: 0s;
 }
 
 .skill-group__title {
@@ -95,5 +115,14 @@ body.dark-mode .skill-group__list li {
   .skill-group__list li {
     font-size: 0.82rem;
     padding: 0.28rem 0.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-group,
+  .skills__grid.is-revealed .skill-group {
+    transform: none;
+    opacity: 1;
+    transition: none;
   }
 }
