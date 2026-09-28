@@ -9,7 +9,7 @@ const experiences = [
     description:
       'Leading engineering for a unified wealth-tracking app — net worth, spending, and investments across every account and currency in one place, built on open banking aggregation with AI-powered insights. Graduated from the UnternehmerTUM Startup Launchpad; now in talks with accelerators and startup funds.',
     period: 'Mar 2026 — Present',
-    location: 'Munich, DE',
+    location: 'Berlin, DE',
   },
   {
     role: 'Founding Engineer',
